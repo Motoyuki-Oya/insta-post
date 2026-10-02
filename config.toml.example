@@ -1,0 +1,46 @@
+# ==========================================
+# Instagram Graph API 投稿ツール 設定ファイル
+# ==========================================
+
+[instagram]
+# Instagram ビジネス/クリエイターアカウントID (数字の文字列)
+# 例: "17841400000000000"
+account_id = "YOUR_INSTAGRAM_ACCOUNT_ID"
+
+# Meta Graph API アクセストークン (長期アクセストークン)
+access_token = "YOUR_META_LONG_LIVED_ACCESS_TOKEN"
+
+# ------------------------------------------
+# ストレージ設定 (Cloudflare R2 または AWS S3)
+# ------------------------------------------
+[storage]
+# "r2" または "s3"
+provider = "r2"
+
+# バケット名
+bucket = "your-bucket-name"
+
+# アクセスキーID
+access_key_id = "your-access-key-id"
+
+# シークレットアクセスキー
+secret_access_key = "your-secret-access-key"
+
+# 【Cloudflare R2 の場合】
+# Cloudflare ダッシュボードの R2 概要ページに表示される「S3 API」エンドポイント
+# 例: "https://<account_id>.r2.cloudflarestorage.com"
+endpoint = "https://<account_id>.r2.cloudflarestorage.com"
+
+# 【AWS S3 の場合】
+# S3 を使用する場合は endpoint をコメントアウトし、region を指定してください。
+# region = "ap-northeast-1"
+
+# Instagram 側（Metaのサーバー）がメディアを取得するための「公開URL」のベース
+# 末尾のスラッシュは含めないでください。
+#
+# ・R2 の場合: R2 のパブリックアクセス設定で有効化したURL、またはカスタムドメイン
+#   例: "https://pub-xxxxxxxx.r2.dev" または "https://media.yourdomain.com"
+#
+# ・S3 の場合: パブリック読み取り可能なバケットのURL、または CloudFront ドメイン
+#   例: "https://your-bucket.s3.ap-northeast-1.amazonaws.com" または "https://d111111abcdef8.cloudfront.net"
+public_url_base = "https://pub-xxxxxxxx.r2.dev"
